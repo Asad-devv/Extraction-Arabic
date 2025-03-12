@@ -54,7 +54,7 @@ if choice == "Process PDF":
     st.write("Upload a PDF, extract Arabic content, and download the result in a Word document.")
 
     # Input fields
-    user_api_key = st.text_input("Enter your Gemini API Key (optional):", type="password")
+    user_api_key = st.text_input("Enter your Gemini API Key (optional): Note if added you extract the whole pdf at once if not upto 100 pages are allowed to extract", type="password")
     pdf_file = st.file_uploader("Upload a PDF file", type=["pdf"])
     start_page = st.number_input("Start Page (1-based index):", value=1, min_value=1)
     end_page = st.number_input("End Page (inclusive):", value=1, min_value=1)
