@@ -1,0 +1,6 @@
+streamlit
+PyMuPDF
+google-generativeai
+python-docx
+python-dotenv
+beautifulsoup4
