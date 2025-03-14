@@ -54,11 +54,23 @@ if choice == "Process PDF":
     st.write("Upload a PDF, extract Arabic content, and download the result in a Word document.")
 
     # Input fields
-    user_api_key = st.text_input("Enter your Gemini API Key (optional): Note if added you extract the whole pdf at once if not upto 100 pages are allowed to extract", type="password")
+    user_api_key = st.text_input("Enter your Gemini API Key (optional):", type="password")
     pdf_file = st.file_uploader("Upload a PDF file", type=["pdf"])
     start_page = st.number_input("Start Page (1-based index):", value=1, min_value=1)
     end_page = st.number_input("End Page (inclusive):", value=1, min_value=1)
+    st.markdown("""
+    ***Process PDF Section Notes:***
+    If you do not provide an API key:
 
+        The tool will process a maximum of 100 pages starting from the specified start page.
+        You can run the tool multiple times (e.g., 60 times) to process more than 60 pages by adjusting the start and end pages for each run.
+        Example: If your PDF has 300 pages, you can process pages 1-100 in the first run, pages 101-200 in the second run, and pages 201-300 in the third run.
+
+    If you provide an API key:
+
+        The tool will process all pages within the specified range without any limitations.
+
+    Example: If your PDF has 500 pages and you provide an API key, you can process all 500 pages in a single run.""")
     if st.button("Process PDF"):
         if not pdf_file:
             st.error("Please upload a PDF file.")
@@ -148,7 +160,37 @@ if choice == "Process PDF":
 elif choice == "Find and Replace":
     st.title("Find and Replace in Arabic DOCX")
     st.write("Upload a DOCX file, specify text to find and replace, and download the updated document.")
+    st.markdown("""
+    The Find and Replace feature is designed for further cleaning and refining of the DOCX file extracted from Gemini. Here’s how to use it:
 
+    Remove Unwanted Text:
+        To remove specific text, add the text you want to remove in the Find box and leave the Replace box empty (or add a space).
+        Example:
+        Find: (Example Text)
+        Replace: (a single space)
+        This will remove (Example Text) from the document.
+        
+    Replace Text:
+        To replace specific text, add the text you want to replace in the Find box and the new text in the Replace box.
+        Example:
+        Find: الشيخ الأكبر
+        Replace: محيي الدين ابن عربي
+        This will replace all occurrences of الشيخ الأكبر with محيي الدين ابن عربي.
+        
+    Fix Formatting Issues:
+        Use Find and Replace to fix formatting issues, such as extra spaces or unwanted characters.
+        Example:
+        Find: (double space)
+        Replace: (single space)
+        This will replace all double spaces with single spaces.
+        
+    Add or Modify Text:
+        Use Find and Replace to add or modify specific phrases or words.
+        Example:
+        Find: ملحق
+        Replace: ملحق توضيحي
+        This will replace all occurrences of ملحق with ملحق توضيحي.
+""")
     # Inject CSS to align text inputs to the right
     st.markdown(
         """
