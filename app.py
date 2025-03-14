@@ -125,7 +125,7 @@ if choice == "Process PDF":
                             
                         # Convert HTML to DOCX
                         html_to_docx(html_content, doc)
-                        time.sleep(0.5)
+                        time.sleep(1)
 
                     except Exception as e:
                         st.error(f"Error processing page {index}: {e}")
