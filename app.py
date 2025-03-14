@@ -57,7 +57,7 @@ if choice == "Process PDF":
 
     **If you do not provide an API key:**
     - The tool will process a **maximum of 100 pages** starting from the specified start page.
-    - You can run the tool **multiple times** (e.g., 60 times) to process more than 60 pages by adjusting the start and end pages for each run.
+    - You can run the tool **multiple times** (e.g., 60 times) to process more than 6000 pages by adjusting the start and end pages for each run.
     - **Example:** If your PDF has 300 pages:
         - Process pages **1-100** in the first run.
         - Process pages **101-200** in the second run.
