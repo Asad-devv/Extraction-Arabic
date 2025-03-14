@@ -141,7 +141,9 @@ if choice == "Process PDF":
 
             except Exception as e:
                 st.error(f"Error: {e}")
-
+            
+            delete_folder("temp_images")
+            delete_folder("temp")
 # Find and Replace Section
 elif choice == "Find and Replace":
     st.title("Find and Replace in Arabic DOCX")
@@ -234,6 +236,4 @@ elif choice == "Find and Replace":
             except Exception as e:
                 st.error(f"Error processing the document: {e}")
 
-# Cleanup
-delete_folder("temp_images")
-delete_folder("temp")
+
