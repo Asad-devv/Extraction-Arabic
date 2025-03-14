@@ -62,13 +62,12 @@ if choice == "Process PDF":
     ***Process PDF Section Notes:***
     If you do not provide an API key:
 
-        The tool will process a maximum of 100 pages starting from the specified start page.
-        You can run the tool multiple times (e.g., 60 times) to process more than 60 pages by adjusting the start and end pages for each run.
-        Example: If your PDF has 300 pages, you can process pages 1-100 in the first run, pages 101-200 in the second run, and pages 201-300 in the third run.
+    The tool will process a maximum of 100 pages starting from the specified start page.
+    You can run the tool multiple times (e.g., 60 times) to process more than 60 pages by \nadjusting the start and end pages for each run.
+    Example: If your PDF has 300 pages, you can process pages 1-100 in the first run, pages 101-200 in the second run, and pages 201-300 in the third run.
 
     If you provide an API key:
-
-        The tool will process all pages within the specified range without any limitations.
+    The tool will process all pages within the specified range without any limitations.
 
     Example: If your PDF has 500 pages and you provide an API key, you can process all 500 pages in a single run.""")
     if st.button("Process PDF"):
