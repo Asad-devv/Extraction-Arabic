@@ -125,7 +125,7 @@ if choice == "Process PDF":
                             
                         # Convert HTML to DOCX
                         html_to_docx(html_content, doc)
-                        genai.delete(myfile)
+                        genai.delete_file(myfile)
                         time.sleep(0.5)
 
                     except Exception as e:
