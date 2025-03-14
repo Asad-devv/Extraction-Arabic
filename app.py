@@ -122,10 +122,11 @@ if choice == "Process PDF":
                         result = model.generate_content([myfile, prompt])
                         html_content = result.text
                         print(html_content)
-
+                            
                         # Convert HTML to DOCX
                         html_to_docx(html_content, doc)
-                        time.sleep(1)
+                        genai.delete(myfile)
+                        time.sleep(0.5)
 
                     except Exception as e:
                         st.error(f"Error processing page {index}: {e}")
