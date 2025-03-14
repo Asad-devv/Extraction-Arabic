@@ -52,12 +52,6 @@ choice = st.sidebar.radio("Go to:", options)
 if choice == "Process PDF":
     st.title("Arabic PDF to Word Converter")
     st.write("Upload a PDF, extract Arabic content, and download the result in a Word document.")
-
-    # Input fields
-    user_api_key = st.text_input("Enter your Gemini API Key (optional):", type="password")
-    pdf_file = st.file_uploader("Upload a PDF file", type=["pdf"])
-    start_page = st.number_input("Start Page (1-based index):", value=1, min_value=1)
-    end_page = st.number_input("End Page (inclusive):", value=1, min_value=1)
     st.markdown("""
     ### **Process PDF Section Notes:**
 
@@ -73,6 +67,12 @@ if choice == "Process PDF":
     - The tool will process **all pages** within the specified range without any limitations.
     - **Example:** If your PDF has 500 pages and you provide an API key, you can process all 500 pages in a single run.
 """)
+    # Input fields
+    user_api_key = st.text_input("Enter your Gemini API Key (optional):", type="password")
+    pdf_file = st.file_uploader("Upload a PDF file", type=["pdf"])
+    start_page = st.number_input("Start Page (1-based index):", value=1, min_value=1)
+    end_page = st.number_input("End Page (inclusive):", value=1, min_value=1)
+    
     if st.button("Process PDF"):
         if not pdf_file:
             st.error("Please upload a PDF file.")
@@ -161,7 +161,6 @@ if choice == "Process PDF":
 # Find and Replace Section
 elif choice == "Find and Replace":
     st.title("Find and Replace in Arabic DOCX")
-    st.write("Upload a DOCX file, specify text to find and replace, and download the updated document.")
     st.markdown("""
     ### **Find and Replace Section Notes:**
 
