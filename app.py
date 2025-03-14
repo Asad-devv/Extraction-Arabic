@@ -59,17 +59,20 @@ if choice == "Process PDF":
     start_page = st.number_input("Start Page (1-based index):", value=1, min_value=1)
     end_page = st.number_input("End Page (inclusive):", value=1, min_value=1)
     st.markdown("""
-    ***Process PDF Section Notes:***
-    If you do not provide an API key:
+    ### **Process PDF Section Notes:**
 
-    The tool will process a maximum of 100 pages starting from the specified start page.
-    You can run the tool multiple times (e.g., 60 times) to process more than 60 pages by \nadjusting the start and end pages for each run.
-    Example: If your PDF has 300 pages, you can process pages 1-100 in the first run, pages 101-200 in the second run, and pages 201-300 in the third run.
+    **If you do not provide an API key:**
+    - The tool will process a **maximum of 100 pages** starting from the specified start page.
+    - You can run the tool **multiple times** (e.g., 60 times) to process more than 60 pages by adjusting the start and end pages for each run.
+    - **Example:** If your PDF has 300 pages:
+        - Process pages **1-100** in the first run.
+        - Process pages **101-200** in the second run.
+        - Process pages **201-300** in the third run.
 
-    If you provide an API key:
-    The tool will process all pages within the specified range without any limitations.
-
-    Example: If your PDF has 500 pages and you provide an API key, you can process all 500 pages in a single run.""")
+    **If you provide an API key:**
+    - The tool will process **all pages** within the specified range without any limitations.
+    - **Example:** If your PDF has 500 pages and you provide an API key, you can process all 500 pages in a single run.
+""")
     if st.button("Process PDF"):
         if not pdf_file:
             st.error("Please upload a PDF file.")
@@ -160,35 +163,37 @@ elif choice == "Find and Replace":
     st.title("Find and Replace in Arabic DOCX")
     st.write("Upload a DOCX file, specify text to find and replace, and download the updated document.")
     st.markdown("""
-    The Find and Replace feature is designed for further cleaning and refining of the DOCX file extracted from Gemini. Here’s how to use it:
+    ### **Find and Replace Section Notes:**
 
-    Remove Unwanted Text:
-        To remove specific text, add the text you want to remove in the Find box and leave the Replace box empty (or add a space).
-        Example:
-        Find: (Example Text)
-        Replace: (a single space)
-        This will remove (Example Text) from the document.
-        
-    Replace Text:
-        To replace specific text, add the text you want to replace in the Find box and the new text in the Replace box.
-        Example:
-        Find: الشيخ الأكبر
-        Replace: محيي الدين ابن عربي
-        This will replace all occurrences of الشيخ الأكبر with محيي الدين ابن عربي.
-        
-    Fix Formatting Issues:
-        Use Find and Replace to fix formatting issues, such as extra spaces or unwanted characters.
-        Example:
-        Find: (double space)
-        Replace: (single space)
-        This will replace all double spaces with single spaces.
-        
-    Add or Modify Text:
-        Use Find and Replace to add or modify specific phrases or words.
-        Example:
-        Find: ملحق
-        Replace: ملحق توضيحي
-        This will replace all occurrences of ملحق with ملحق توضيحي.
+    The **Find and Replace** feature is designed for **further cleaning and refining** of the DOCX file extracted from Gemini. Here’s how to use it:
+
+    **1. Remove Unwanted Text:**
+    - To **remove specific text**, add the text you want to remove in the **Find** box and leave the **Replace** box empty (or add a space).
+    - **Example:**
+        - **Find:** `(Example Text)`
+        - **Replace:** ` ` (a single space)
+        - **Result:** `(Example Text)` will be removed from the document.
+
+    **2. Replace Text:**
+    - To **replace specific text**, add the text you want to replace in the **Find** box and the new text in the **Replace** box.
+    - **Example:**
+        - **Find:** `الشيخ الأكبر`
+        - **Replace:** `محيي الدين ابن عربي`
+        - **Result:** All occurrences of `الشيخ الأكبر` will be replaced with `محيي الدين ابن عربي`.
+
+    **3. Fix Formatting Issues:**
+    - Use **Find and Replace** to fix formatting issues, such as extra spaces or unwanted characters.
+    - **Example:**
+        - **Find:** `  ` (double space)
+        - **Replace:** ` ` (single space)
+        - **Result:** All double spaces will be replaced with single spaces.
+
+    **4. Add or Modify Text:**
+    - Use **Find and Replace** to add or modify specific phrases or words.
+    - **Example:**
+        - **Find:** `ملحق`
+        - **Replace:** `ملحق توضيحي`
+        - **Result:** All occurrences of `ملحق` will be replaced with `ملحق توضيحي`.
 """)
     # Inject CSS to align text inputs to the right
     st.markdown(
